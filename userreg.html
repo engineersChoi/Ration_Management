@@ -10,7 +10,7 @@
 		background-color: #000000;
 		color: #ff7200;
 		padding: 20px;
-		border-radius: 10px;
+		border-radius: 0px;
 		max-width: 400px;
 		margin: 0 auto;
 	  }
@@ -24,7 +24,7 @@
 	  form select {
 		margin-bottom: 20px;
 		padding: 5px;
-		border-radius: 5px;
+		border-radius: 0px;
 		border: none;
 	  }
 	  
@@ -32,7 +32,7 @@
 		background-color: #ff7200;
 		color: #ffffff;
 		padding: 10px 20px;
-		border-radius: 5px;
+		border-radius: 0px;
 		border: none;
 		cursor: pointer;
 	  }
@@ -67,9 +67,9 @@
 			}
 
 			// Validate card number format
-			var regex = /^[0-9]{16}$/;
+			var regex = /^[0-9]{10}$/;
 			if (!regex.test(cardNumber)) {
-				alert("Invalid card number format. Must be 16 digits");
+				alert("Invalid card number format. Must be 10 digits");
 				return false;
 			}
 
@@ -87,26 +87,26 @@
 		}
 	</script>
 </head>
-<body>
-	<form name="myForm" onsubmit="return validateForm()">
+<body style="background-image: url(wp3441559-kerala-gods-own-country-wallpapers.jpg);">
+	<form name="myForm" onsubmit="return validateForm()" method="post" action="register.php">
 		<label for="username">Username:</label>
-		<input type="text" id="username" name="username"><br>
+		<input type="text" id="username" name="username" placeholder="Enter UserName"><br>
 
 		<label for="password">Password:</label>
-		<input type="password" id="password" name="password"><br>
+		<input type="password" id="password" name="password" placeholder="Enter Password"><br>
 
 		<label for="cardnumber">Card Number:</label>
-		<input type="text" id="cardnumber" name="cardnumber"><br>
+		<input type="text" id="cardnumber" name="cardnumber" placeholder="Enter card No"><br>
 
 		<label for="cardtype">Card Type:</label>
 		<select id="cardtype" name="cardtype">
 			<option value="">Select a card type</option>
-			<option value="visa">Visa</option>
-			<option value="mastercard">Mastercard</option>
-			<option value="amex">American Express</option>
+			<option value="apl">APL</option>
+			<option value="bpl">BPL</option>
+			<option value="others">Others</option>
 		</select><br>
 		<label for="phone">Phone no:</label>
-		<input type="tel" id="phone" name="phone"><br>
+		<input type="tel" id="phone" name="phone" placeholder="Enter Phone NO"><br>
 		<input type="submit" value="Submit">
 	</form>
 </body>
