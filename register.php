@@ -1,32 +1,36 @@
 <?php
+// Set the database credentials
 $servername = "localhost";
-$username = "root";
-$password = "mysql";
-$dbname = "User_Reg";
+$username = "username";
+$password = "password";
+$dbname = "mydb";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Create a connection to the database
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+// Check the connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
-// Get the values submitted by the form
-$username = $_POST['username'];
-$password = $_POST['password'];
-$cnum = $_POST['cnum'];
-$ctype = $_POST['ctype'];
-$phone = $_POST['phone'];
+// Process the form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $cardnumber = $_POST["cardnumber"];
+    $cardtype = $_POST["cardtype"];
+    $phone = $_POST["phone"];
 
-// Insert the values into the "users" table
-$sql = "INSERT INTO users(username, password,cardNumber,cardType,phoneNumber) VALUES ('$username', '$password', '$cnum', '$ctype', '$phone')";
+    // Insert the data into the database
+    $sql = "INSERT INTO mytable (username, password, cardnumber, cardtype, phone) VALUES ('$username', '$password', '$cardnumber', '$cardtype', '$phone')";
 
-if ($conn->query($sql) === TRUE) {
-    echo "User registered successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    if (mysqli_query($conn, $sql)) {
+        echo "Data inserted successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
 }
 
-$conn->close();
+// Close the database connection
+mysqli_close($conn);
 ?>
