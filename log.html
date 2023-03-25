@@ -3,11 +3,30 @@
 <head>
     <title>Ration-Management</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        function validateForm() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    if (username == "" || password == "") {
+        alert("Please fill in both the username and password fields.");
+        if (username == "") {
+            document.getElementById("username").style.border = "2px solid red";
+        }
+        if (password == "") {
+            document.getElementById("password").style.border = "2px solid red";
+        }
+        return false;
+    }
+    return true;
+}
+
+    </script>
 </head>
-<body style="background-image: url('wp3441559-kerala-gods-own-country-wallpapers.jpg'); background-position: center;
+<body style="background-image: url('wp4836115-abstract-light-hd-wallpapers.jpg'); background-position: center;
 background-repeat: no-repeat;
 background-size: cover;">
-    <form method="post" action="login-1.html">
+    <form method="post" action="login.php" onsubmit="return validateForm()">
     <div class="main">
         <div class="navbar">
             <div class="icon">
@@ -36,16 +55,15 @@ background-size: cover;">
 
                 <div class="form">
                     <h2>Login Here</h2>
-                    <input type="text" name="username" placeholder="Username">
-                    <input type="password" name="" placeholder="Password">
-                    <button class="btnn"><a href="login-1.html">Login</a></button>
-                    <p class="link">Don't have an account<br>
+                    <input type="text" name="username" id="username" placeholder="Username">
+                    <input type="password" name="password" id="password" placeholder="Password">
+                    <button class="btnn" type="submit">Login</button>
+                    <p class="link">Don't have an account?<br>
                     <a href="userreg.html">Register here</a></p>
                 </div>
-                    </div>
-                </div>
+            </div>
         </div>
     </div>
-</form>
+    </form>
 </body>
 </html>

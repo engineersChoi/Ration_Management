@@ -1,9 +1,9 @@
 <?php
 // Set the database credentials
 $servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "mydb";
+$username = "root";
+$password = "mysql";
+$dbname = "User_Reg";
 
 // Create a connection to the database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -22,13 +22,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = $_POST["phone"];
 
     // Insert the data into the database
-    $sql = "INSERT INTO mytable (username, password, cardnumber, cardtype, phone) VALUES ('$username', '$password', '$cardnumber', '$cardtype', '$phone')";
+    $sql = "INSERT INTO users(username, password, cardNumber, cardType, phoneNumber)VALUES ('$username', '$password', '$cardnumber', '$cardtype', '$phone')";
 
     if (mysqli_query($conn, $sql)) {
         echo "Data inserted successfully";
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
+    header("Location: log.html");
+exit();
 }
 
 // Close the database connection

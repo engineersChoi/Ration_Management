@@ -67,7 +67,7 @@
 			}
 
 			// Validate card number format
-			var regex = /^[0-9]{10}$/;
+			var regex = /^[0-9]{16}$/;
 			if (!regex.test(cardNumber)) {
 				alert("Invalid card number format. Must be 10 digits");
 				return false;
