@@ -23,6 +23,55 @@ background-size: cover;">
                 <br><input type="date" class="date-field">
             </div>
         </div>
+        <?php
+$servername = "localhost";
+$username = "root";
+$password = "mysql";
+$dbname = "User_Reg";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT username, cardNumber, cardType, phoneNumber FROM users";
+$result = mysqli_query($conn, $sql);
+
+// Check if query returned any results
+if (mysqli_num_rows($result) > 0) {
+    echo '<table border="1">';
+    echo '<tr>';
+    echo '<th colspan="2">User Details</th>';
+    echo '</tr>';
+    while($row = mysqli_fetch_assoc($result)) {
+        echo '<tr>';
+        echo '<td>Name</td>';
+        echo '<td>' . $row["username"] . '</td>';
+        echo '</tr>';
+        echo '<tr>';
+        echo '<td>Card Number</td>';
+        echo '<td>' . $row["cardNumber"] . '</td>';
+        echo '</tr>';
+        echo '<tr>';
+        echo '<td>Card Type</td>';
+        echo '<td>' . $row["cardType"] . '</td>';
+        echo '</tr>';
+        echo '<tr>';
+        echo '<td>Phone Number</td>';
+        echo '<td>' . $row["phoneNumber"] . '</td>';
+        echo '</tr>';
+    }
+    echo '</table>';
+} else {
+    echo "0 results";
+}
+
+mysqli_close($conn);
+?>
+
 <style>
         .date-field {
           display: block;
