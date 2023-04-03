@@ -25,7 +25,7 @@ $result = mysqli_query($conn, $sql);
 // Check if there is a row in the result set, which means the username and password were found
 if (mysqli_num_rows($result) == 1) {
   // Redirect to the login-1.html page
-  header("Location: login-1.html");
+  header("Location: login-1.php");
 } else {
   // If the username and password were not found, show an error message on the login form
   echo '<script>alert("Invalid username or password");window.location.href="log.html";</script>';
