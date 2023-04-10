@@ -87,16 +87,19 @@
 		}
 	</script>
 </head>
-<body style="background-image: url(wp3441559-kerala-gods-own-country-wallpapers.jpg);">
+<body style="background-image: url(wp3441559-kerala-gods-own-country-wallpapers.jpg);
+ background-repeat: no-repeat;
+ background-size: cover;">
 	<form name="myForm" onsubmit="return validateForm()" method="post" action="register.php">
 		<label for="username">Username:</label>
 		<input type="text" id="username" name="username" placeholder="Enter UserName"><br>
 
 		<label for="password">Password:</label>
-		<input type="password" id="password" name="password" placeholder="Enter Password"><br>
+		<input type="password" id="password" name="password" placeholder="Enter Password" maxlength="8"><br>
 
 		<label for="cardnumber">Card Number:</label>
-		<input type="text" id="cardnumber" name="cardnumber" placeholder="Enter card No"><br>
+		<input type="text" id="cardnumber" name="cardnumber" placeholder="Enter card No" maxlength="16" required>
+		<br>
 
 		<label for="cardtype">Card Type:</label>
 		<select id="cardtype" name="cardtype">
@@ -106,7 +109,7 @@
 			<option value="others">Others</option>
 		</select><br>
 		<label for="phone">Phone no:</label>
-		<input type="tel" id="phone" name="phone" placeholder="Enter Phone NO"><br>
+		<input type="tel" id="phone" name="phone" placeholder="Enter Phone NO" maxlength="10"><br>
 		<input type="submit" value="Submit">
 	</form>
 </body>

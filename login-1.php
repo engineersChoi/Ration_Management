@@ -4,7 +4,7 @@
     <title>Ration-Management</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-image: url('wp4836115-abstract-light-hd-wallpapers.jpg'); background-position: center;
+<body style="background-image: url(wp3441559-kerala-gods-own-country-wallpapers.jpg);background-position: center;
 background-repeat: no-repeat;
 background-size: cover;">
     <div class="main">
@@ -23,7 +23,46 @@ background-size: cover;">
                 <br><input type="date" class="date-field">
             </div>
         </div>
-        <div>
+<?php
+session_start();
+$usr = $_POST['username'];
+if (isset($_POST['submit'])) {
+  $_SESSION['Username'] = $usr;
+}
+include "db.php";
+$sql = "SELECT username, cardNumber, cardType, phoneNumber FROM users WHERE username='$usr'";
+$result = mysqli_query($conn, $sql);
+// Check if query returned any results
+if (mysqli_num_rows($result) > 0) {
+    echo '<table border="1">';
+    echo '<tr>';
+    echo '<th colspan="2">User Details</th>';
+    echo '</tr>';
+    while($row = mysqli_fetch_assoc($result)) {
+        echo '<tr>';
+        echo '<td>Name</td>';
+        echo '<td>' . $row["username"] . '</td>';
+        echo '</tr>';
+        echo '<tr>';
+        echo '<td>Card Number</td>';
+        echo '<td>' . $row["cardNumber"] . '</td>';
+        echo '</tr>';
+        echo '<tr>';
+        echo '<td>Card Type</td>';
+        echo '<td>' . $row["cardType"] . '</td>';
+        echo '</tr>';
+        echo '<tr>';
+        echo '<td>Phone Number</td>';
+        echo '<td>' . $row["phoneNumber"] . '</td>';
+        echo '</tr>';
+    }
+    echo '</table>';
+} else {
+    echo "0 results";
+}
+mysqli_close($conn);
+?>
+<div>
 	<table>
     <thead>
         <tr>
@@ -83,53 +122,7 @@ background-size: cover;">
         </tr>
     </tbody>
 </table>
-<br><br><center><input type="submit" value="ADD TO CART" id="sub"></center>
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "mysql";
-$dbname = "User_Reg";
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-$sql = "SELECT username, cardNumber, cardType, phoneNumber FROM users";
-$result = mysqli_query($conn, $sql);
-
-// Check if query returned any results
-if (mysqli_num_rows($result) > 0) {
-    echo '<table border="1">';
-    echo '<tr>';
-    echo '<th colspan="2">User Details</th>';
-    echo '</tr>';
-    while($row = mysqli_fetch_assoc($result)) {
-        echo '<tr>';
-        echo '<td>Name</td>';
-        echo '<td>' . $row["username"] . '</td>';
-        echo '</tr>';
-        echo '<tr>';
-        echo '<td>Card Number</td>';
-        echo '<td>' . $row["cardNumber"] . '</td>';
-        echo '</tr>';
-        echo '<tr>';
-        echo '<td>Card Type</td>';
-        echo '<td>' . $row["cardType"] . '</td>';
-        echo '</tr>';
-        echo '<tr>';
-        echo '<td>Phone Number</td>';
-        echo '<td>' . $row["phoneNumber"] . '</td>';
-        echo '</tr>';
-    }
-    echo '</table>';
-} else {
-    echo "0 results";
-}
-
-mysqli_close($conn);
-?>
+</div>
 <style>
         .date-field {
           display: block;
@@ -140,7 +133,7 @@ mysqli_close($conn);
           border-radius: 5px;
           transition: border-color 0.3s ease;
           margin-left: 60%;
-          margin-top: 10%;
+          margin-top: 5%;
         }
         .date-field::-webkit-calendar-picker-indicator {
           background: transparent;
@@ -151,7 +144,7 @@ mysqli_close($conn);
   font-size: 12px;
   width: 80%;
   margin: auto;
-  margin-top:150px;
+  margin-top:200px;
   border-collapse: collapse;
 }
 th, td {

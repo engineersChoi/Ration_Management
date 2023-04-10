@@ -1,19 +1,5 @@
 <?php
-// Set the database credentials
-$servername = "localhost";
-$username = "root";
-$password = "mysql";
-$dbname = "User_Reg";
-
-// Create a connection to the database
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// Check the connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-// Process the form submission
+include "db.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -32,7 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: log.html");
 exit();
 }
-
 // Close the database connection
 mysqli_close($conn);
 ?>
