@@ -2,45 +2,160 @@
 <html>
 <head>
 	<title>Form Validation Example</title>
-	<style>form {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		background-color: #000000;
-		color: #ff7200;
-		padding: 20px;
-		border-radius: 0px;
-		max-width: 400px;
-		margin: 0 auto;
-	  }
-	  
-	  form label {
-		font-weight: bold;
-		margin-bottom: 10px;
-	  }
-	  
-	  form input,
-	  form select {
-		margin-bottom: 20px;
-		padding: 5px;
-		border-radius: 0px;
-		border: none;
-	  }
-	  
-	  form input[type="submit"] {
-		background-color: #ff7200;
-		color: #ffffff;
-		padding: 10px 20px;
-		border-radius: 0px;
-		border: none;
-		cursor: pointer;
-	  }
-	  
-	  form input[type="submit"]:hover {
-		background-color: #ffffff;
-		color: #000000;
-	  }
+	<style>
+	.navbar{
+    width: 1200px;
+    height: 75px;
+    margin: auto;
+}
+
+.icon{
+    width: 200px;
+    float: left;
+    height: 70px;
+}
+.content .cn a{
+    text-decoration: none;
+    color: #000;
+    transition: .3s ease;
+}
+
+.cn:hover{
+    background-color: #fff;
+}
+
+.content span{
+    color: #ff7200;
+    font-size: 65px
+}
+
+ul{
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li{
+    list-style: none;
+    margin-left: 62px;
+    margin-top: 27px;
+    font-size: 14px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover{
+    color: #ff7200;
+}
+	form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  color: #ff7200;
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 100px;
+  font-family: "Roboto", sans-serif;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  font-weight: bolder;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+form input,
+form select {
+	width: 300px;
+  margin-bottom: 30px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 2px 5px rgba(51, 226, 7, 0.1);
+  transition: all 0.3s ease;
+}
+
+form input[type="submit"] {
+  background-color: #ff7200;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100px;
+}
+
+form input[type="submit"]:hover {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+	  .logo{
+    color: #ff7200;
+    font-size: 35px;
+    font-family: Arial;
+    padding-left: 20px;
+    float: left;
+    padding-top: 10px;
+    margin-top: 5px
+}
+
+.menu{
+    width: 400px;
+    float: left;
+    height: 70px;
+}
+.content{
+    width: 1200px;
+    height: auto;
+    margin: auto;
+    color: #fff;
+    position: relative;
+}
+
+.content .par{
+    padding-left: 20px;
+    padding-bottom: 25px;
+    font-family: Arial;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+}
+
+.content h1{
+    font-family: 'Times New Roman';
+    font-size: 50px;
+    padding-left: 20px;
+    margin-top: 9%;
+    letter-spacing: 2px;
+}
+
+.content .cn{
+    width: 160px;
+    height: 40px;
+    background: #ff7200;
+    border: none;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .4s ease;
+    
+}
 	  </style>
 	<script>
 		function validateForm() {
@@ -90,6 +205,18 @@
 <body style="background-image: url(wp3441559-kerala-gods-own-country-wallpapers.jpg);
  background-repeat: no-repeat;
  background-size: cover;">
+  <div class="navbar">
+	<div class="icon">
+		<h2 class="logo">Ration Management System</h2>
+	</div>
+
+	<div class="menu">
+		<ul>
+			<li><a href="#">ABOUT</a></li>
+			<li><a href="#">SERVICE</a></li>
+		</ul>
+	</div>
+</div> 
 	<form name="myForm" onsubmit="return validateForm()" method="post" action="register.php">
 		<label for="username">Username:</label>
 		<input type="text" id="username" name="username" placeholder="Enter UserName"><br>
