@@ -34,6 +34,7 @@ background-size: cover;">
 
             <div class="menu">
                 <ul>
+                    <li><a href="admin.php">ADMIN</a></li>
                     <li><a href="#">ABOUT</a></li>
                     <li><a href="#">SERVICE</a></li>
                 </ul>
